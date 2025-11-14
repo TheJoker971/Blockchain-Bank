@@ -3,5 +3,19 @@
     "name": "@blockchain-bank/domain",
     "version": "1.0.0",
     "description": "Domain part of the project",
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "uuid": "^13.0.0"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^6.0.0",
+        "@types/jest": "^30.0.0",
+        "jest": "^30.2.0",
+        "ts-jest": "^29.4.5",
+        "typescript": "^5.9.3"
+    },
+    "scripts": {
+        "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+        "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
+    }
 }
