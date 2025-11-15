@@ -1,4 +1,4 @@
-import { EmailError } from "../error/EmailError";
+import { EmailError } from "../../error/user/EmailError";
 
 export type Email = `${string}@${string}.${string}`;
 

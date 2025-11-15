@@ -1,10 +1,10 @@
-import { Email, EmailValue } from "../value/EmailValue";
-import { Firstname, FirstnameValue } from "../value/FirstnameValue";
-import { Lastname, LastnameValue } from "../value/LastnameValue";
-import { Password, PasswordValue } from "../value/PasswordValue";
-import { Phone, PhoneValue } from "../value/PhoneValue";
-import { Role } from "../value/RoleValue";
-import { UUID, UUIDValue } from "../value/UUIDValue";
+import { Email, EmailValue } from "../value/user/EmailValue";
+import { Firstname, FirstnameValue } from "../value/user/FirstnameValue";
+import { Lastname, LastnameValue } from "../value/user/LastnameValue";
+import { Password, PasswordValue } from "../value/user/PasswordValue";
+import { Phone, PhoneValue } from "../value/user/PhoneValue";
+import { Role } from "../value/user/RoleValue";
+import { UUID, UUIDValue } from "../value/user/UUIDValue";
 
 export class UserEntity {
 

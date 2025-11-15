@@ -1,4 +1,4 @@
-import { PhoneError } from "../error/PhoneError";
+import { PhoneError } from "../../error/user/PhoneError";
 
 export type Phone = `+${string}`;
 

@@ -1,5 +1,5 @@
 import {validate} from "uuid";
-import { UUIDError } from "../error/UUIDError";
+import { UUIDError } from "../../error/user/UUIDError";
 
 export type UUID = string;
 

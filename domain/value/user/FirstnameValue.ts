@@ -1,4 +1,4 @@
-import { FirstnameError } from "../error/FirstnameError";
+import { FirstnameError } from "../../error/user/FirstnameError";
 
 export type Firstname = string;
 

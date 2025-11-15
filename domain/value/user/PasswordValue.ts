@@ -1,4 +1,4 @@
-import { PasswordError } from "../error/PasswordError";
+import { PasswordError } from "../../error/user/PasswordError";
 
 export type Password = `0x${string}`;
 
