@@ -15,6 +15,7 @@ export class UserEntity {
         public readonly email: Email,
         public readonly phone: Phone,
         public readonly password: Password,
+        public readonly advisorId: null | UUID = null,
         public readonly role: Role = "CLIENT",
         public readonly updatedAt?: Date,
         public readonly createdAt: Date = new Date()
@@ -27,6 +28,7 @@ export class UserEntity {
         email:string,
         phone:string,
         password:string,
+        advisorId?: string,
         role?:Role,
         updatedAt?:Date
     ) : UserEntity | Error {
@@ -37,6 +39,7 @@ export class UserEntity {
         const emailOrError : EmailValue | Error = EmailValue.create(email);
         const phoneOrError : PhoneValue | Error = PhoneValue.create(phone);
         const passwordOrError : PasswordValue | Error = PasswordValue.create(password);
+        let advisorIdOrError: undefined | UUIDValue | Error = undefined;
 
         if (idOrError instanceof Error) {
             return idOrError;
@@ -56,6 +59,12 @@ export class UserEntity {
         if (passwordOrError instanceof Error) {
             return passwordOrError;
         }
+        if(advisorId !== undefined) {
+            advisorIdOrError = UUIDValue.create(advisorId);
+            if(advisorIdOrError instanceof Error) {
+                return advisorIdOrError
+            }
+        }
 
         return new UserEntity(idOrError.value,
             firstnameOrError.value,
@@ -63,6 +72,7 @@ export class UserEntity {
             emailOrError.value,
             phoneOrError.value,
             passwordOrError.value,
+            advisorIdOrError?.value,
             role,
             updatedAt
         );

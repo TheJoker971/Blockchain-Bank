@@ -280,6 +280,48 @@ describe("Create UserEntity Password tests",() => {
     });
 });
 
+describe("Create UserEntity AdvisorId tests",() => {
+    test("Revert UUIDError simple string",() => {
+        const user = UserEntity.create(
+            "d5bdd173-5e89-4e56-bfa4-046e102e8847",
+            "Jean", 
+            "Dupont",
+            "jeandupont@example.",
+            "+3300000000",
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "advisorID"
+        );
+        expect(user).toBeInstanceOf(Error);
+    });
+    test("Create d5bdd173-5e89-4e56-bfa4-046e102e8849",() => {
+        const user = UserEntity.create(
+            "d5bdd173-5e89-4e56-bfa4-046e102e8847",
+            "Jean", 
+            "Dupont",
+            "jeandupont@example.",
+            "+3300000000",
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "d5bdd173-5e89-4e56-bfa4-046e102e8849"
+        );
+        if(user instanceof UserEntity) {
+            expect(user.advisorId).toBe("d5bdd173-5e89-4e56-bfa4-046e102e8849");
+        }
+    });
+    test("Create null",() => {
+        const user = UserEntity.create(
+            "d5bdd173-5e89-4e56-bfa4-046e102e8847",
+            "Jean", 
+            "Dupont",
+            "jeandupont@example.",
+            "+3300000000",
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        );
+        if(user instanceof UserEntity) {
+            expect(user.advisorId).toBe(null);
+        }
+    });
+});
+
 describe("Create UserEntity Role tests",() => {
     test("Create UserEntity role=CLIENT",() => {
         const user = UserEntity.create(
@@ -302,6 +344,7 @@ describe("Create UserEntity Role tests",() => {
             "jeandupont@example.",
             "+3300000000",
             "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            undefined,
             "ADVISOR"
         );
         if(user instanceof UserEntity) {
@@ -316,6 +359,7 @@ describe("Create UserEntity Role tests",() => {
             "jeandupont@example.",
             "+3300000000",
             "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            undefined,
             "DIRECTOR"
         );
         if(user instanceof UserEntity) {
@@ -330,6 +374,7 @@ describe("Create UserEntity Role tests",() => {
             "jeandupont@example.",
             "+3300000000",
             "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            undefined,
             undefined,
         );
         if(user instanceof UserEntity) {
@@ -349,6 +394,7 @@ describe("Create UserEntity UpdateAt tests",() => {
             "+3300000000",
             "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             undefined,
+            undefined,
             date
         );
         if(user instanceof UserEntity) {
@@ -366,6 +412,7 @@ describe("Create UserEntity UpdateAt tests",() => {
             "jeandupont@example.",
             "+3300000000",
             "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            undefined,
             undefined,
             date
         );
