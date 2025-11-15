@@ -30,7 +30,8 @@ export class UserEntity {
         password:string,
         advisorId?: string,
         role?:Role,
-        updatedAt?:Date
+        updatedAt?:Date,
+        createdAt?:Date
     ) : UserEntity | Error {
 
         const idOrError : UUIDValue | Error = UUIDValue.create(id);
@@ -74,7 +75,8 @@ export class UserEntity {
             passwordOrError.value,
             advisorIdOrError?.value,
             role,
-            updatedAt
+            updatedAt,
+            createdAt
         );
 
     }
