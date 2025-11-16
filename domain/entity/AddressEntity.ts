@@ -3,12 +3,13 @@ import { City, CityValue } from "../value/address/CityValue";
 import { Country, CountryValue } from "../value/address/CountryValue";
 import { PostalCode, PostalCodeValue } from "../value/address/PostalCodeValue";
 import { StreetNumber, StreetNumberValue } from "../value/address/StreetNumberValue";
-import { UUID, UUIDValue } from "../value/user/UUIDValue";
+import { ID, IDValue } from "../value/IDValue";
+import { UUID, UUIDValue } from "../value/UUIDValue";
 
 export class AddressEntity {
 
     private constructor(
-        public readonly id: number,
+        public readonly id: ID,
         public readonly streetNumber: StreetNumber,
         public readonly addressLine: AddressLine,
         public readonly city: City,
@@ -30,6 +31,7 @@ export class AddressEntity {
         updatedAt?:Date,
         createdAt?:Date
     ) {
+        const idOrError : IDValue | Error = IDValue.create(id);
         const streetNumberOrError : StreetNumberValue | Error = StreetNumberValue.create(streetNumber);
         const addressLineOrError : AddressLineValue | Error = AddressLineValue.create(addressLine);
         const cityOrError : CityValue | Error = CityValue.create(city);
@@ -37,6 +39,9 @@ export class AddressEntity {
         const countryOrError : CountryValue | Error = CountryValue.create(country);
         const userIdOrError : UUIDValue | Error = UUIDValue.create(userId);
 
+        if(idOrError instanceof Error) {
+            return idOrError;
+        }
         if(streetNumberOrError instanceof Error) {
             return streetNumberOrError;
         }
@@ -57,7 +62,7 @@ export class AddressEntity {
         }
 
         return new AddressEntity(
-            id,
+            idOrError.value,
             streetNumberOrError.value,
             addressLineOrError.value,
             cityOrError.value,

@@ -1,5 +1,5 @@
 import {validate} from "uuid";
-import { UUIDError } from "../../error/user/UUIDError";
+import { UUIDError } from "../error/UUIDError";
 
 export type UUID = string;
 
@@ -11,7 +11,7 @@ export class UUIDValue {
         if(validate(uuid)) {
             return new UUIDValue(uuid as UUID);
         }
-        return new UUIDError("Uuid invalid format !");
+        return new UUIDError("Invalid UUID format !");
         
     }
 }

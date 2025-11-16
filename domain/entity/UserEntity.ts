@@ -4,7 +4,7 @@ import { Lastname, LastnameValue } from "../value/user/LastnameValue";
 import { Password, PasswordValue } from "../value/user/PasswordValue";
 import { Phone, PhoneValue } from "../value/user/PhoneValue";
 import { Role } from "../value/user/RoleValue";
-import { UUID, UUIDValue } from "../value/user/UUIDValue";
+import { UUID, UUIDValue } from "../value/UUIDValue";
 
 export class UserEntity {
 
