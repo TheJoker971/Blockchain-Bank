@@ -6,6 +6,7 @@ import { Phone, PhoneValue } from "../value/user/PhoneValue";
 import { Role } from "../value/user/RoleValue";
 import { UUID, UUIDValue } from "../value/UUIDValue";
 
+
 export class UserEntity {
 
     private constructor(
