@@ -4,7 +4,8 @@ import { Lastname, LastnameValue } from "../value/user/LastnameValue";
 import { Password, PasswordValue } from "../value/user/PasswordValue";
 import { Phone, PhoneValue } from "../value/user/PhoneValue";
 import { Role } from "../value/user/RoleValue";
-import { UUID, UUIDValue } from "../value/user/UUIDValue";
+import { UUID, UUIDValue } from "../value/UUIDValue";
+
 
 export class UserEntity {
 
@@ -30,7 +31,8 @@ export class UserEntity {
         password:string,
         advisorId?: string,
         role?:Role,
-        updatedAt?:Date
+        updatedAt?:Date,
+        createdAt?:Date
     ) : UserEntity | Error {
 
         const idOrError : UUIDValue | Error = UUIDValue.create(id);
@@ -74,7 +76,8 @@ export class UserEntity {
             passwordOrError.value,
             advisorIdOrError?.value,
             role,
-            updatedAt
+            updatedAt,
+            createdAt
         );
 
     }
