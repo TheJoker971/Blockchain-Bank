@@ -5,6 +5,7 @@
     "description": "Domain part of the project",
     "type": "module",
     "dependencies": {
+        "ethers": "^6.15.0",
         "uuid": "^13.0.0"
     },
     "devDependencies": {
