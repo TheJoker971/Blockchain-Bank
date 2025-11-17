@@ -1,0 +1,7 @@
+{
+    "private": true,
+    "name": "@blockchain-bank/domain",
+    "version": "1.0.0",
+    "description": "Domain part of the project",
+    "type": "module"
+}
